@@ -1,7 +1,9 @@
 :root {
-	--turkey: #FFF0EB;
-	--white: white;
-	--blue: blue;
+	--white: #FFF;
+	--blue: #2687D0;
+	--dark-grey:#333;
+	--light-grey:#bbb;
+
 }
 
 *, *:before, *:after {
@@ -18,12 +20,29 @@ body {
 body {
 	display: grid;
 	height: 100vh;
-	grid-template-rows: auto 1fr auto;
-	background-color: var(--turkey);
+	padding-top: 2em;
+	padding-left: 2em;
+	grid-template-rows: 1fr auto;
+	grid-template-columns: 1fr 4fr;
+	grid-template-areas: 
+	"sidebar content"
+	"footer footer";
+	background-color: var(--white);
+}
+
+//Grid Layout
+
+header {
+	grid-area: sidebar;
 }
 
 main {
+	grid-area: content;
 	max-width: 37.5em;
+}
+
+footer {
+	grid-area: footer;
 }
 
 p,
@@ -81,29 +100,30 @@ ul {
 /* Header Logo (style as h2) */
 header > em {
 	display: block;
-	font-size: 2em;
-	margin: .67em 0;
-	font-weight: bold;
+	font-size: 1em;
+	margin-bottom: 4em;
+	/*margin: .67em 0;*/
+	font-weight: 700;
 	font-style: normal;
 }
 
 /* Header Nav */
 header nav ul :first-child {
-	margin-left: 0;
+	/*margin-left: 0;*/
 }
 
 header nav li {
-	display: inline-block;
-	margin: 0 .5em;
+	display: block;
+	margin: 0.5em 0;
 }
 
 header nav li a[href]:not(:hover) {
 	text-decoration: none;
+	color: var(--light-grey);
 }
 
 header nav li a[data-current="current item"] {
-	font-weight: 700;
-	text-decoration: underline;
+	color: var(--dark-grey);
 }
 
 /* Posts List */
